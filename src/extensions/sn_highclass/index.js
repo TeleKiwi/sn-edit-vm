@@ -77,7 +77,7 @@ class HighClass {
                         id: 'sn.blocks.pi',
                         default: 'pi',
                         description: 'Returns pi',
-                        blockType: BlockType.REPORTER
+                        blockType: BlockType.BOOLEAN,
                     })
                 },
                 {
@@ -86,7 +86,7 @@ class HighClass {
                         id: 'sn.blocks.true',
                         default: 'true',
                         description: 'Returns true',
-                        blockType: BlockType.REPORTER
+                        blockType: BlockType.BOOLEAN,
                     })
                 },
                 {
@@ -95,7 +95,7 @@ class HighClass {
                         id: 'sn.blocks.false',
                         default: 'false',
                         description: 'Returns false',
-                        blockType: BlockType.REPORTER
+                        blockType: BlockType.BOOLEAN,
                     })
                 },
                 {

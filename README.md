@@ -1,6 +1,10 @@
-## TurboWarp/scratch-vm
+# SN-Edit-VM
+The virtual machine for SN-Edit.
 
 Modified Scratch VM with a JIT compiler and more features.
+
+
+<!-- ## TurboWarp/scratch-vm
 
 This is a drop-in replacement for LLK/scratch-vm.
 
@@ -148,4 +152,4 @@ npm run deploy -- -r <your repo url>
 ## Donate
 We provide [Scratch](https://scratch.mit.edu) free of charge, and want to keep it that way! Please consider making a [donation](https://secure.donationpay.org/scratchfoundation/) to support our continued engineering, design, community, and resource development efforts. Donations of any size are appreciated. Thank you!
 
--->
+--> -->

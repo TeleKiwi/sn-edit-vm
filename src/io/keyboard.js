@@ -88,10 +88,7 @@ class Keyboard {
         case 'PageUp': return KEY_NAME.PAGE_UP;
         case 'PageDown': return KEY_NAME.PAGE_DOWN;
         }
-        // Ignore modifier keys
-        if (keyString.length > 1) {
-            return '';
-        }
+        
         // tw: toUpperCase() happens later. We need to track key case.
         return keyString;
     }
@@ -123,11 +120,6 @@ class Keyboard {
         // If the arg matches a special key name, return it.
         if (KEY_NAME_LIST.includes(keyArg)) {
             return keyArg;
-        }
-
-        // Use only the first character.
-        if (keyArg.length > 1) {
-            keyArg = keyArg[0];
         }
 
         // Check for the space character.

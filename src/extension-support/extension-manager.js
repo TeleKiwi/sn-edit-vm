@@ -24,8 +24,8 @@ const builtinExtensions = {
     makeymakey: () => require('../extensions/scratch3_makeymakey'),
     boost: () => require('../extensions/scratch3_boost'),
     gdxfor: () => require('../extensions/scratch3_gdx_for'),
-    // tw: core extension
-    tw: () => require('../extensions/tw')
+    //Support HighClass and other extensions
+    hc: () => require('../extensions/sn_highclass')
 };
 
 /**

@@ -436,8 +436,8 @@ class Runtime extends EventEmitter {
      * @const {number}
      */
     static get STAGE_WIDTH () {
-        // tw: stage size is set per-runtime, this is only the initial value
-        return 480;
+        // stage size is set per-runtime, this is only the initial value
+        return 640;
     }
 
     /**
@@ -445,7 +445,7 @@ class Runtime extends EventEmitter {
      * @const {number}
      */
     static get STAGE_HEIGHT () {
-        // tw: stage size is set per-runtime, this is only the initial value
+        //stage size is set per-runtime, this is only the initial value
         return 360;
     }
 

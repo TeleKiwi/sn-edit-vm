@@ -101,8 +101,9 @@ class HighClass {
                 {
                     opcode: 'exponent',
                     text: formatMessage({
-                        id: 'sn.blocks.lte',
+                        id: 'sn.blocks.exp',
                         default: '[A]^[B]',
+                        blockType: BlockType.REPORTER,
                         description: 'change a value to power of another',
                         arguments: {
                             A: {
@@ -121,6 +122,7 @@ class HighClass {
                     text: formatMessage({
                         id: 'sn.blocks.lte',
                         default: '[A] <= [B]',
+                        blockType: BlockType.REPORTER,
                         description: 'check if a value is less than or equal to another',
                         arguments: {
                             A: {
@@ -139,6 +141,7 @@ class HighClass {
                     text: formatMessage({
                         id: 'sn.blocks.gte',
                         default: '[A] >= [B]',
+                        blockType: BlockType.REPORTER,
                         description: 'check if a value is greater than or equal to another',
                         arguments: {
                             A: {
@@ -157,6 +160,7 @@ class HighClass {
                     text: formatMessage({
                         id: 'sn.blocks.isa',
                         default: 'is [A] exactly [B]?',
+                        blockType: BlockType.REPORTER,
                         description: 'check if a value is less than or equal to another',
                         arguments: {
                             A: {

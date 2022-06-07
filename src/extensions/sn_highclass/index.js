@@ -28,6 +28,7 @@ class HighClass {
             id: 'hc',
             name: 'HighClass',
             blockIconURI: icon,
+            menuIconURI: icon2,
             color1: '#ff964c',
             color2: '#fd8a5e',
             blocks: [

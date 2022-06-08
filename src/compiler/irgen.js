@@ -351,11 +351,22 @@ class ScriptTreeGenerator {
                 left: this.descendInputOfBlock(block, 'OPERAND1'),
                 right: this.descendInputOfBlock(block, 'OPERAND2')
             };
+        case 'operator_gte':
+            return {
+                kind: 'op.greaterorequal',
+                left: this.descendInputOfBlock(block, 'OPERAND1'),
+                right: this.descendInputOfBlock(block, 'OPERAND2')
+            };
         case 'operator_join':
             return {
                 kind: 'op.join',
                 left: this.descendInputOfBlock(block, 'STRING1'),
                 right: this.descendInputOfBlock(block, 'STRING2')
+            };
+        case 'operator_return':
+            return {
+                kind: 'op.return',
+                left: this.descendInputOfBlock(block, 'STRING')
             };
         case 'operator_length':
             return {
@@ -371,6 +382,12 @@ class ScriptTreeGenerator {
         case 'operator_lt':
             return {
                 kind: 'op.less',
+                left: this.descendInputOfBlock(block, 'OPERAND1'),
+                right: this.descendInputOfBlock(block, 'OPERAND2')
+            };
+        case 'operator_lte':
+            return {
+                kind: 'op.lessorequal',
                 left: this.descendInputOfBlock(block, 'OPERAND1'),
                 right: this.descendInputOfBlock(block, 'OPERAND2')
             };

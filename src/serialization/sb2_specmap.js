@@ -1259,6 +1259,21 @@ const specMap = {
             }
         ]
     },
+    '<=': {
+        opcode: 'operator_lte',
+        argMap: [
+            {
+                type: 'input',
+                inputOp: 'text',
+                inputName: 'OPERAND1'
+            },
+            {
+                type: 'input',
+                inputOp: 'text',
+                inputName: 'OPERAND2'
+            }
+        ]
+    },
     '=': {
         opcode: 'operator_equals',
         argMap: [
@@ -1276,6 +1291,21 @@ const specMap = {
     },
     '>': {
         opcode: 'operator_gt',
+        argMap: [
+            {
+                type: 'input',
+                inputOp: 'text',
+                inputName: 'OPERAND1'
+            },
+            {
+                type: 'input',
+                inputOp: 'text',
+                inputName: 'OPERAND2'
+            }
+        ]
+    },
+    '>=': {
+        opcode: 'operator_gte',
         argMap: [
             {
                 type: 'input',
@@ -1341,6 +1371,16 @@ const specMap = {
                 type: 'input',
                 inputOp: 'text',
                 inputName: 'STRING2'
+            }
+        ]
+    },
+    'return': {
+        opcode: 'operator_return',
+        argMap: [
+            {
+                type: 'input',
+                inputOp: 'text',
+                inputName: 'STRING'
             }
         ]
     },

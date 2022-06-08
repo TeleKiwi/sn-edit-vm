@@ -28,6 +28,7 @@ class Scratch3OperatorsBlocks {
             operator_and: this.and,
             operator_or: this.or,
             operator_not: this.not,
+            operator_pie: this.pi,
             operator_random: this.random,
             operator_join: this.join,
             operator_return: this.return,
@@ -88,6 +89,10 @@ class Scratch3OperatorsBlocks {
         return !Cast.toBoolean(args.OPERAND);
     }
 
+    pi () {
+      return Math.PI
+    }
+
     random (args) {
         return this._random(args.FROM, args.TO);
     }
@@ -109,7 +114,7 @@ class Scratch3OperatorsBlocks {
     }
     
     // WIP return block
-    return (args) {
+    return (args, util) {
         return Cast.toString(args.STRING)
     }
 

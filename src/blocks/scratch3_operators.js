@@ -21,8 +21,10 @@ class Scratch3OperatorsBlocks {
             operator_multiply: this.multiply,
             operator_divide: this.divide,
             operator_lt: this.lt,
+            operator_lte: this.lte,
             operator_equals: this.equals,
             operator_gt: this.gt,
+            operator_gte: this.gte,
             operator_and: this.and,
             operator_or: this.or,
             operator_not: this.not,
@@ -57,12 +59,20 @@ class Scratch3OperatorsBlocks {
         return Cast.compare(args.OPERAND1, args.OPERAND2) < 0;
     }
 
+    lte (args) {
+        return Cast.compare(args.OPERAND1, args.OPERAND2) <= 0;
+    }
+
     equals (args) {
         return Cast.compare(args.OPERAND1, args.OPERAND2) === 0;
     }
 
     gt (args) {
         return Cast.compare(args.OPERAND1, args.OPERAND2) > 0;
+    }
+
+    gte (args) {
+        return Cast.compare(args.OPERAND1, args.OPERAND2) >= 0;
     }
 
     and (args) {
@@ -95,6 +105,11 @@ class Scratch3OperatorsBlocks {
 
     join (args) {
         return Cast.toString(args.STRING1) + Cast.toString(args.STRING2);
+    }
+    
+    // WIP return block
+    return (args) {
+        return Cast.toString(args.STRING)
     }
 
     letterOf (args) {

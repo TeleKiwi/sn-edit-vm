@@ -5,21 +5,6 @@ const BlockType = require('../extension-support/block-type');
 const dispatch = require('../dispatch/worker-dispatch');
 const log = require('../util/log');
 const TargetType = require('../extension-support/target-type');
-const {isWorker} = require('./tw-extension-worker-context');
-
-const loadScripts = url => {
-    if (isWorker) {
-        importScripts(url);
-    } else {
-        return new Promise((resolve, reject) => {
-            const script = document.createElement('script');
-            script.onload = () => resolve();
-            script.onerror = () => reject(new Error(`Error when loading custom extension script: ${url}`));
-            script.src = url;
-            document.body.appendChild(script);
-        });
-    }
-};
 
 class ExtensionWorker {
     constructor () {
@@ -32,12 +17,12 @@ class ExtensionWorker {
         });
 
         dispatch.waitForConnection.then(() => {
-            dispatch.call('extensions', 'allocateWorker').then(async x => {
+            dispatch.call('extensions', 'allocateWorker').then(x => {
                 const [id, extension] = x;
                 this.workerId = id;
 
                 try {
-                    await loadScripts(extension);
+                    importScripts(extension);
                     await this.firstRegistrationPromise;
 
                     const initialRegistrations = this.initialRegistrations;

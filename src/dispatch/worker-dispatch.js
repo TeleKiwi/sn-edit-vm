@@ -1,7 +1,6 @@
 const SharedDispatch = require('./shared-dispatch');
 
 const log = require('../util/log');
-const {centralDispatchService} = require('../extension-support/tw-extension-worker-context');
 
 /**
  * This class provides a Worker with the means to participate in the message dispatch system managed by CentralDispatch.
@@ -33,7 +32,7 @@ class WorkerDispatch extends SharedDispatch {
          */
         this.services = {};
 
-        this._onMessage = this._onMessage.bind(this, centralDispatchService);
+        this._onMessage = this._onMessage.bind(this, self);
         if (typeof self !== 'undefined') {
             self.onmessage = this._onMessage;
         }
@@ -63,7 +62,7 @@ class WorkerDispatch extends SharedDispatch {
             log.warn(`Worker dispatch replacing existing service provider for ${service}`);
         }
         this.services[service] = provider;
-        return this.waitForConnection.then(() => this._remoteCall(centralDispatchService, 'dispatch', 'setService', service));
+        return this.waitForConnection.then(() => this._remoteCall(self, 'dispatch', 'setService', service));
     }
 
     /**
@@ -77,7 +76,7 @@ class WorkerDispatch extends SharedDispatch {
         // if we don't have a local service by this name, contact central dispatch by calling `postMessage` on self
         const provider = this.services[service];
         return {
-            provider: provider || centralDispatchService,
+            provider: provider || self,
             isRemote: !provider
         };
     }

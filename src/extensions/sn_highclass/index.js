@@ -237,40 +237,35 @@ class HighClass {
                                 id: 'sn.blocks.success',
                                 default: 'success',
                                 description: 'Yes!'
-                            }),
-                            value: '0'
+                            })
                         },
                         {
                             text: formatMessage({
                                 id: 'sn.blocks.error',
                                 default: 'error',
                                 description: 'No!'
-                            }),
-                            value: '1'
+                            })
                         },
                         {
                             text: formatMessage({
                                 id: 'sn.blocks.info',
                                 default: 'info',
                                 description: 'Hey there.'
-                            }),
-                            value: '2'
+                            })
                         },
                         {
                             text: formatMessage({
                                 id: 'sn.blocks.warn',
                                 default: 'warning',
                                 description: 'Watch out.'
-                            }),
-                            value: '3'
+                            })
                         },
                         {
                             text: formatMessage({
                                 id: 'sn.blocks.ask',
                                 default: 'question',
                                 description: 'Quick question.'
-                            }),
-                            value: '4'
+                            })
                         }
                     ],
                     acceptReporters: true

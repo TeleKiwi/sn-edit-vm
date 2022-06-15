@@ -80,7 +80,7 @@ class HighClass {
                         default: 'Alert Message [title] with description [desc] type: [type]',
                         description: 'Block that returns the last key that was pressed'
                     }),
-                    blockType: BlockType.REPORTER,
+                    blockType: BlockType.COMMAND,
                     arguments: {
                         title: {
                             type: ArgumentType.STRING,
@@ -113,7 +113,17 @@ class HighClass {
                         default: 'is [A] exactly [B]',
                         description: 'Block that returns if two values are the same. Case Senstive'
                     }),
-                    blockType: BlockType.BOOLEAN
+                    blockType: BlockType.BOOLEAN,
+                    arguments: {
+                        A: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'testsubject'
+                        },
+                        B: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'testSubject'
+                        }
+                    }
                 },
                 {
                     opcode: 'LTE',
@@ -122,7 +132,17 @@ class HighClass {
                         default: '[A] <= [B]',
                         description: 'Block that returns if one value is less than or equal to another value'
                     }),
-                    blockType: BlockType.BOOLEAN
+                    blockType: BlockType.BOOLEAN,
+                    arguments: {
+                        A: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: '0'
+                        },
+                        B: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: '50'
+                        }
+                    }
                 },
                 {
                     opcode: 'GTE',
@@ -131,7 +151,17 @@ class HighClass {
                         default: '[A] >= [B]',
                         description: 'Block that returns if one value is greater than or equal to another value'
                     }),
-                    blockType: BlockType.BOOLEAN
+                    blockType: BlockType.BOOLEAN,
+                    arguments: {
+                        A: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: '0'
+                        },
+                        B: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: '50'
+                        }
+                    }
                 },
                 {
                     opcode: 'trueBlock',
@@ -158,7 +188,17 @@ class HighClass {
                         default: '[A] ^ [B]',
                         description: 'Block that returns A^B'
                     }),
-                    blockType: BlockType.BOOLEAN
+                    blockType: BlockType.BOOLEAN,
+                    arguments: {
+                        A: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: '1'
+                        },
+                        B: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: '2'
+                        }
+                    }
                 },
             ],
             menus: {

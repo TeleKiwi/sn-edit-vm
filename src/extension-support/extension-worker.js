@@ -23,7 +23,6 @@ class ExtensionWorker {
 
                 try {
                     importScripts(extension);
-                    await this.firstRegistrationPromise;
 
                     const initialRegistrations = this.initialRegistrations;
                     this.initialRegistrations = null;

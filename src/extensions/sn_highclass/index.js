@@ -61,159 +61,104 @@ class HighClass {
                 {
                     opcode: 'fetchFrom',
                     text: formatMessage({
-                        id: 'sn.blocks.fetch',
-                        default: 'Get Data from [URL]',
-                        description: 'Fetch data fron a url',
-                        blockType: BlockType.REPORTER,
-                        arguments: {
-                            URL: {
-                                type: ArgumentType.STRING,
-                                defaultValue: 'https://cube-enix.github.io/fetch_test.txt'
-                            }
+                        id: 'sn.block.fetch',
+                        default: 'Fetch data from [URL]',
+                        description: 'Returns data from a url'
+                    }),
+                    blockType: BlockType.REPORTER,
+                    arguments: {
+                        URL: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'https://cube-enix.github.io/fetch_test.txt'
                         }
-                    })
+                    }
                 },
                 {
                     opcode: 'notify',
                     text: formatMessage({
-                        id: 'sn.blocks.notify',
-                        default: 'Alert message [title] with decription [desc] type: [types]',
-                        description: 'Fetch data fron a url',
-                        blockType: BlockType.REPORTER,
-                        arguments: {
-                            title: {
-                                type: ArgumentType.STRING,
-                                defaultValue: 'Welcome Back!'
-                            },
-                            desc: {
-                                type: ArgumentType.STRING,
-                                defaultValue: 'Hello testSubject!'
-                            },
-                            types: {
-                                type: ArgumentType.STRING,
-                                menu: 'swalTypes',
-                                defaultValue: 'success'
-                            },
-                        }
-                    })
+                        id: 'sn.blocks.sweetalert',
+                        default: 'Alert Message [title] with description [desc] type: [type]',
+                        description: 'Block that returns the last key that was pressed'
+                    }),
+                    blockType: BlockType.REPORTER,
+                    arguments: {
+                        title: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'Welcome Back!'
+                        },
+                        desc: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'Hello testSubject!'
+                        },
+                        types: {
+                            type: ArgumentType.STRING,
+                            menu: 'swalTypes',
+                            defaultValue: 'success'
+                        },
+                    }
                 },
                 {
                     opcode: 'pi',
                     text: formatMessage({
                         id: 'sn.blocks.pi',
                         default: 'pi',
-                        description: 'Returns pi',
-                        blockType: BlockType.BOOLEAN,
-                    })
+                        description: 'Block that returns pi'
+                    }),
+                    blockType: BlockType.REPORTER
                 },
                 {
-                    opcode: 'trueBlock',
+                    opcode: 'isExactly',
                     text: formatMessage({
-                        id: 'sn.blocks.true',
-                        default: 'true',
-                        description: 'Returns true',
-                        blockType: BlockType.BOOLEAN,
-                    })
-                },
-                {
-                    opcode: 'falseBlock',
-                    text: formatMessage({
-                        id: 'sn.blocks.false',
-                        default: 'false',
-                        description: 'Returns false',
-                        blockType: BlockType.BOOLEAN,
-                    })
-                },
-                {
-                    opcode: 'exponent',
-                    text: formatMessage({
-                        id: 'sn.blocks.exp',
-                        default: '[A]^[B]',
-                        blockType: BlockType.REPORTER,
-                        description: 'change a value to power of another',
-                        arguments: {
-                            A: {
-                                type: ArgumentType.NUMBER,
-                                defaultValue: '1'
-                            },
-                            B: {
-                                type: ArgumentType.NUMBER,
-                                defaultValue: '2'
-                            },
-                        }
-                    })
+                        id: 'sn.blocks.casesense',
+                        default: 'is [A] exactly [B]',
+                        description: 'Block that returns if two values are the same. Case Senstive'
+                    }),
+                    blockType: BlockType.BOOLEAN
                 },
                 {
                     opcode: 'LTE',
                     text: formatMessage({
                         id: 'sn.blocks.lte',
                         default: '[A] <= [B]',
-                        blockType: BlockType.REPORTER,
-                        description: 'check if a value is less than or equal to another',
-                        arguments: {
-                            A: {
-                                type: ArgumentType.NUMBER,
-                                defaultValue: '0'
-                            },
-                            B: {
-                                type: ArgumentType.NUMBER,
-                                defaultValue: '50'
-                            },
-                        }
-                    })
+                        description: 'Block that returns if one value is less than or equal to another value'
+                    }),
+                    blockType: BlockType.BOOLEAN
                 },
                 {
                     opcode: 'GTE',
                     text: formatMessage({
                         id: 'sn.blocks.gte',
                         default: '[A] >= [B]',
-                        blockType: BlockType.REPORTER,
-                        description: 'check if a value is greater than or equal to another',
-                        arguments: {
-                            A: {
-                                type: ArgumentType.NUMBER,
-                                defaultValue: '50'
-                            },
-                            B: {
-                                type: ArgumentType.NUMBER,
-                                defaultValue: '0'
-                            },
-                        }
-                    })
+                        description: 'Block that returns if one value is greater than or equal to another value'
+                    }),
+                    blockType: BlockType.BOOLEAN
                 },
                 {
-                    opcode: 'isExactly',
+                    opcode: 'trueBlock',
                     text: formatMessage({
-                        id: 'sn.blocks.isa',
-                        default: 'is [A] exactly [B]?',
-                        blockType: BlockType.REPORTER,
-                        description: 'check if a value is less than or equal to another',
-                        arguments: {
-                            A: {
-                                type: ArgumentType.STRING,
-                                defaultValue: 'Yes'
-                            },
-                            B: {
-                                type: ArgumentType.STRING,
-                                defaultValue: 'yes'
-                            },
-                        }
-                    })
+                        id: 'sn.blocks.true',
+                        default: 'true',
+                        description: 'Block that returns true'
+                    }),
+                    blockType: BlockType.BOOLEAN
                 },
                 {
-                    opcode: 'setCursor',
+                    opcode: 'falseBlock',
                     text: formatMessage({
-                        id: 'sn.blocks.cursor',
-                        default: 'set cursor icon io [STRING]',
-                        blockType: BlockType.REPORTER,
-                        description: 'Set the cursor icon to an image.',
-                        arguments: {
-                            "STRING": {
-                                type: ArgumentType.STRING,
-                                defaultValue: 'https://art.pixilart.com/d418c9c821e6833.png'
-                            }
-                        }
-                    })
+                        id: 'sn.blocks.false',
+                        default: 'false',
+                        description: 'Block that returns false'
+                    }),
+                    blockType: BlockType.BOOLEAN
+                },
+                {
+                    opcode: 'exponent',
+                    text: formatMessage({
+                        id: 'sn.blocks.power',
+                        default: '[A] ^ [B]',
+                        description: 'Block that returns A^B'
+                    }),
+                    blockType: BlockType.BOOLEAN
                 },
             ],
             menus: {

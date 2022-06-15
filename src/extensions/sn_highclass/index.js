@@ -1,4 +1,5 @@
 const formatMessage = require('format-message');
+const swal = require('sweetalert2');
 const BlockType = require('../../extension-support/block-type');
 const ArgumentType = require('../../extension-support/argument-type');
 const Cast = require('../../util/cast');
@@ -70,6 +71,30 @@ class HighClass {
                                 type: ArgumentType.STRING,
                                 defaultValue: 'https://cube-enix.github.io/fetch_test.txt'
                             }
+                        }
+                    })
+                },
+                {
+                    opcode: 'notify',
+                    text: formatMessage({
+                        id: 'sn.blocks.notify',
+                        default: 'Alert message [title] with decription [desc] type: [types]',
+                        description: 'Fetch data fron a url',
+                        blockType: BlockType.REPORTER,
+                        arguments: {
+                            title: {
+                                type: ArgumentType.STRING,
+                                defaultValue: 'Welcome Back!'
+                            },
+                            desc: {
+                                type: ArgumentType.STRING,
+                                defaultValue: 'Hello testSubject!'
+                            },
+                            types: {
+                                type: ArgumentType.STRING,
+                                menu: 'swalTypes',
+                                defaultValue: 'success'
+                            },
                         }
                     })
                 },
@@ -176,6 +201,21 @@ class HighClass {
                         }
                     })
                 },
+                {
+                    opcode: 'setCursor',
+                    text: formatMessage({
+                        id: 'sn.blocks.cursor',
+                        default: 'set cursor icon io [STRING]',
+                        blockType: BlockType.REPORTER,
+                        description: 'Set the cursor icon to an image.',
+                        arguments: {
+                            "STRING": {
+                                type: ArgumentType.STRING,
+                                defaultValue: 'https://art.pixilart.com/d418c9c821e6833.png'
+                            }
+                        }
+                    })
+                },
             ],
             menus: {
                 mouseButton: {
@@ -206,9 +246,66 @@ class HighClass {
                         }
                     ],
                     acceptReporters: true
+                },
+                swalTypes: {
+                    items: [
+                        {
+                            text: formatMessage({
+                                id: 'sn.blocks.success',
+                                default: 'success',
+                                description: 'Yes!'
+                            }),
+                            value: '0'
+                        },
+                        {
+                            text: formatMessage({
+                                id: 'sn.blocks.error',
+                                default: 'error',
+                                description: 'No!'
+                            }),
+                            value: '1'
+                        },
+                        {
+                            text: formatMessage({
+                                id: 'sn.blocks.info',
+                                default: 'info',
+                                description: 'Hey there.'
+                            }),
+                            value: '2'
+                        },
+                        {
+                            text: formatMessage({
+                                id: 'sn.blocks.warn',
+                                default: 'warning',
+                                description: 'Watch out.'
+                            }),
+                            value: '3'
+                        },
+                        {
+                            text: formatMessage({
+                                id: 'sn.blocks.ask',
+                                default: 'question',
+                                description: 'Quick question.'
+                            }),
+                            value: '4'
+                        }
+                    ],
+                    acceptReporters: true
                 }
             }
         };
+    }
+    setCursor (args, utils) {
+        document.body.style.cursor=args.STRING;
+    }
+
+    notify (args, utils) {
+        Swal.fire({
+            title: args.title,
+            text: args.desc,
+            icon: args.types,
+            confirmButtonText: 'Cool'
+          })
     }
 
     getLastKeyPressed (args, util) {

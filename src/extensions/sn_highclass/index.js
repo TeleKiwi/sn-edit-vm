@@ -1,11 +1,10 @@
 const formatMessage = require('format-message');
-const swal = require('sweetalert2');
+const Swal = require('sweetalert2');
 const BlockType = require('../../extension-support/block-type');
 const ArgumentType = require('../../extension-support/argument-type');
 const Cast = require('../../util/cast');
 
 /**
- * Class for TurboWarp blocks
  * @constructor
  */
 

@@ -103,6 +103,7 @@ class HighClass {
                         default: 'pi',
                         description: 'Block that returns pi'
                     }),
+                    disableMonitor: true,
                     blockType: BlockType.REPORTER
                 },
                 {
@@ -199,6 +200,61 @@ class HighClass {
                         }
                     }
                 },
+                {
+                    opcode: 'ternaryOperator',
+                    text: formatMessage({
+                        id: 'sn.blocks.dynamic',
+                        default: 'if [A] then [B] else [C]',
+                        description: 'Dynamic If Statements'
+                    }),
+                    blockType: BlockType.REPORTER,
+                    arguments: {
+                        A: {
+                            type: ArgumentType.BOOLEAN
+                        },
+                        B: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'TeleKiwi'                           
+                        },
+                        C: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'SheepTester'
+                        }
+                    }
+                },
+                {
+                    opcode: 'getLetters',
+                    text: formatMessage({
+                        id: 'sn.blocks.get',
+                        default: 'letters [START] to [END] of [STRING]',
+                        description: 'returns a set of letters.'
+                    }),
+                    blockType: BlockType.REPORTER,
+                    arguments: {
+                        START: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: "7"
+                        },
+                        END: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: "10"
+                        },
+                        STRING: {
+                            type: ArgumentType.STRING,
+                            defaultValue: "Hello testSuject"
+                        },
+                    }
+                },
+                {
+                    opcode: 'currentMillisecond',
+                    text: formatMessage({
+                        id: 'sn.blocks.mill',
+                        default: 'current millisecond',
+                        description: 'returns the current millisecond'
+                    }),
+                    blockType: BlockType.REPORTER
+                },
+                
             ],
             menus: {
                 mouseButton: {
@@ -229,50 +285,19 @@ class HighClass {
                         }
                     ],
                     acceptReporters: true
-                },
-                swalTypes: {
-                    items: [
-                        {
-                            text: formatMessage({
-                                id: 'sn.blocks.success',
-                                default: 'success',
-                                description: 'Yes!'
-                            })
-                        },
-                        {
-                            text: formatMessage({
-                                id: 'sn.blocks.error',
-                                default: 'error',
-                                description: 'No!'
-                            })
-                        },
-                        {
-                            text: formatMessage({
-                                id: 'sn.blocks.info',
-                                default: 'info',
-                                description: 'Hey there.'
-                            })
-                        },
-                        {
-                            text: formatMessage({
-                                id: 'sn.blocks.warn',
-                                default: 'warning',
-                                description: 'Watch out.'
-                            })
-                        },
-                        {
-                            text: formatMessage({
-                                id: 'sn.blocks.ask',
-                                default: 'question',
-                                description: 'Quick question.'
-                            })
-                        }
-                    ],
-                    acceptReporters: true
                 }
             }
         };
     }
+
+    currentMillisecond() {
+        return Date.now() % 1000;
+    }
+
+    ternaryOperator({A, B, C}) {
+        return A ? B : C;
+    }
+
     setCursor (args, utils) {
         document.body.style.cursor=args.STRING;
     }

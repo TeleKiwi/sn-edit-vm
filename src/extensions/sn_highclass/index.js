@@ -4,6 +4,16 @@ const BlockType = require('../../extension-support/block-type');
 const ArgumentType = require('../../extension-support/argument-type');
 const Cast = require('../../util/cast');
 
+var input="test";
+
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+
+    input = String.fromCharCode(parseInt(e));
+
+}
+
 /**
  * @constructor
  */
@@ -370,6 +380,14 @@ class HighClass {
 
     exponent({A, B}) {
     return Math.pow(A, B);
+    }
+    
+    userinput() {
+        return input;
+    }
+    
+    resetuserinput() {
+        input="";
     }
 
 }

@@ -10,7 +10,7 @@ document.onkeydown = checkKey;
 
 function checkKey(e) {
 
-    input = String.fromCharCode(parseInt(e));
+    input += String.fromCharCode(parseInt(e));
 
 }
 

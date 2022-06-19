@@ -254,6 +254,24 @@ class HighClass {
                     }),
                     blockType: BlockType.REPORTER
                 },
+                {
+                    opcode: 'userinput',
+                    text: formatMessage({
+                        id: 'sn.blocks.input',
+                        default: 'Input',
+                        description: 'Returns user input'
+                    }),
+                    blockType: BlockType.REPORTER
+                },
+                {
+                    opcode: 'resetuserinput',
+                    text: formatMessage({
+                        id: 'sn.blocks.resetinput',
+                        default: 'Reset Input',
+                        description: 'Clears the users input'
+                    }),
+                    blockType: BlockType.COMMAND
+                },
                 
             ],
             menus: {

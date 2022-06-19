@@ -6,12 +6,11 @@ const Cast = require('../../util/cast');
 
 var input="test";
 
-document.onkeydown = checkKey;
-
-function checkKey(e) {
-
-    input += String.fromCharCode(parseInt(e));
-
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    var charCode = evt.keyCode || evt.which;
+    var charStr = String.fromCharCode(charCode);
+    input+=charStr;
 }
 
 /**

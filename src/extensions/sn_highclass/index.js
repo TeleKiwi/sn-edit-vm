@@ -317,6 +317,22 @@ class HighClass {
                     }),
                     blockType: BlockType.COMMAND
                 },
+                {
+                    opcode: 'mouseview',
+                    text: formatMessage({
+                        id: 'tw.blocks.mouseview',
+                        default: 'Mouse [view]',
+                        description: 'Hide/Show the mouse'
+                    }),
+                    blockType: BlockType.BOOLEAN,
+                    arguments: {
+                        viewoption: {
+                            type: ArgumentType.NUMBER,
+                            menu: 'mouseviewmenu',
+                            defaultValue: '0'
+                        }
+                    }
+                },
                 
             ],
             menus: {
@@ -346,6 +362,27 @@ class HighClass {
                             }),
                             value: '2'
                         }
+                    ],
+                    acceptReporters: true
+                },
+                mouseviewmenu: {
+                    items: [
+                        {
+                            text: formatMessage({
+                                id: 'tw.blocks.mouseview.show',
+                                default: 'Show',
+                                description: 'Show the mouse onscreen'
+                            }),
+                            value: '0'
+                        },
+                        {
+                            text: formatMessage({
+                                id: 'tw.blocks.mouseview.hide',
+                                default: 'Hide',
+                                description: 'Hide the mouse onscreen'
+                            }),
+                            value: '1'
+                        },
                     ],
                     acceptReporters: true
                 }
@@ -385,6 +422,11 @@ class HighClass {
     getButtonIsDown (args, util) {
         const button = Cast.toNumber(args.MOUSE_BUTTON);
         return util.ioQuery('mouse', 'getButtonIsDown', [button]);
+    }
+
+    mouseview(args, util) {
+        const option = Cast.toNumber(args.viewoption);
+        // code for hiding and showing mouse goes here (idk how to do it)
     }
 
     fetchFrom({URL}) {

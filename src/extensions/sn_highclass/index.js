@@ -51,6 +51,7 @@ class HighClass {
             name: 'HighClass',
             blockIconURI: icon,
             menuIconURI: icon,
+            docsURI: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
             color1: '#ff964c',
             color2: '#fd8a5e',
             blocks: [

@@ -262,7 +262,7 @@ class HighClass {
                         },
                         STRING: {
                             type: ArgumentType.STRING,
-                            defaultValue: "Hello testSuject"
+                            defaultValue: "Hello Test Subject"
                         },
                     }
                 },
@@ -274,6 +274,29 @@ class HighClass {
                         description: 'returns the current millisecond'
                     }),
                     blockType: BlockType.REPORTER
+                },
+                {
+                    opcode: 'clamp',
+                    text: formatMessage({
+                        id: 'sn.blocks.clamp',
+                        default: 'Clamp [input] Min: [min] Max: [max]',
+                        description: 'Clamps a number between a minimum and a maximum'
+                    }),
+                    blockType: BlockType.REPORTER,
+                    arguments: {
+                        input: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: "5"
+                        },
+                        min: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: "1"
+                        },
+                        max: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: "10"
+                        },
+                    }
                 },
                 {
                     opcode: 'userinput',
@@ -399,6 +422,10 @@ class HighClass {
     
     resetuserinput() {
         input="";
+    }
+
+    clamp({input, min, max}) {
+        return Math.min(Math.max(input, min), max);
     }
 
 }

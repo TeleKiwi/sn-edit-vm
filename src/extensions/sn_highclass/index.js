@@ -4,36 +4,24 @@ const BlockType = require('../../extension-support/block-type');
 const ArgumentType = require('../../extension-support/argument-type');
 const Cast = require('../../util/cast');
 
+// Code for input blocks -Electro
+//only support for lowercase letters and number for now
 var input="test";
-var shift = new Boolean(false);
-
 document.onkeydown = function(evt) {
     evt = evt || window.event;
     var charCode = evt.keyCode || evt.which;
     var charStr = String.fromCharCode(charCode);
-    if (!shift) {charStr=charStr.toLowerCase();}
     if (charCode >= 48 && charCode <= 57) {
-        input+=charStr;
+        input+=charStr.toLowerCase();
     }
     if (charCode >= 65 && charCode <= 90) {
-        input+=charStr;
+        input+=charStr.toLowerCase();
     }
-    if (charCode >= 186 && charCode <= 223) {
-        input+=charStr;
+    if (charCode == 32) {
+        input+=charStr.toLowerCase();
     }
     if (charCode == 8) {
         input=input.substring(0,input.length-1);
-    }
-    if (charCode == 16) {
-        shift=true
-    }
-}
-document.onkeyup = function(evt) {
-    evt = evt || window.event;
-    var charCode = evt.keyCode || evt.which;
-    var charStr = String.fromCharCode(charCode);
-    if (charCode == 16) {
-        shift=false
     }
 }
 

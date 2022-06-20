@@ -301,6 +301,44 @@ class HighClass {
                     }
                 },
                 {
+                    opcode: 'reverse',
+                    text: formatMessage({
+                        id: 'sn.blocks.reverse',
+                        default: 'Reverse Text [text]',
+                        description: 'Reverses text'
+                    }),
+                    blockType: BlockType.COMMAND,
+                    arguments: {
+                        text: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'foo'
+                        }
+                    }
+                },
+                {
+                    opcode: 'replace',
+                    text: formatMessage({
+                        id: 'sn.blocks.replace',
+                        default: 'replace [find] with [replace] in [text]',
+                        description: 'replace text'
+                    }),
+                    blockType: BlockType.COMMAND,
+                    arguments: {
+                        find: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: "Foo",
+                        },
+                        replace: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: "Foobar",
+                        },
+                        text: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: "Foo",
+                        }
+                    }
+                },
+                {
                     opcode: 'userinput',
                     text: formatMessage({
                         id: 'sn.blocks.input',
@@ -352,6 +390,14 @@ class HighClass {
                 }
             }
         };
+    }
+
+    replace (args,utils) {
+        return args.text.replace(args.find, args.replace);
+    }
+
+    reverse (args,utils) {
+        return args.text.split('').reverse().join('');
     }
 
     getLetters (args, utils) {

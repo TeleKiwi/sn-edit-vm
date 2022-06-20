@@ -6,6 +6,8 @@ const Cast = require('../../util/cast');
 
 // Code for input blocks -Electro
 //only support for lowercase letters and number for now
+// --> Theres probably a better way to do this judging from the other scripts but this works.
+// --> Also all my comments will have "-->" after the comment defintion. - Ship
 var input="test";
 document.onkeydown = function(evt) {
     evt = evt || window.event;
@@ -112,7 +114,6 @@ class HighClass {
                         },
                         types: {
                             type: ArgumentType.STRING,
-                            menu: 'swalTypes',
                             defaultValue: 'success'
                         },
                     }
@@ -254,11 +255,11 @@ class HighClass {
                     arguments: {
                         START: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: "7"
+                            defaultValue: '7'
                         },
                         END: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: "10"
+                            defaultValue: '10'
                         },
                         STRING: {
                             type: ArgumentType.STRING,
@@ -327,6 +328,10 @@ class HighClass {
                 }
             }
         };
+    }
+
+    getLetters (args, utils) {
+        return STRING.slice(Math.max(1, args.START) - 1, Math.min(STRING.length, args.END)); // --> Not sure if I defined the args correctly but its fine
     }
 
     currentMillisecond() {

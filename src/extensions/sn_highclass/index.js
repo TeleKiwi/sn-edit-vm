@@ -5,12 +5,36 @@ const ArgumentType = require('../../extension-support/argument-type');
 const Cast = require('../../util/cast');
 
 var input="test";
+var shift = new Boolean(false);
 
 document.onkeydown = function(evt) {
     evt = evt || window.event;
     var charCode = evt.keyCode || evt.which;
     var charStr = String.fromCharCode(charCode);
-    input+=charStr;
+    if (!shift) {charStr=charStr.toLowerCase();}
+    if (charCode >= 48 && charCode <= 57) {
+        input+=charStr;
+    }
+    if (charCode >= 65 && charCode <= 90) {
+        input+=charStr;
+    }
+    if (charCode >= 186 && charCode <= 223) {
+        input+=charStr;
+    }
+    if (charCode == 8) {
+        input=input.substring(0,input.length-1);
+    }
+    if (charCode == 16) {
+        shift=true
+    }
+}
+document.onkeyup = function(evt) {
+    evt = evt || window.event;
+    var charCode = evt.keyCode || evt.which;
+    var charStr = String.fromCharCode(charCode);
+    if (charCode == 16) {
+        shift=false
+    }
 }
 
 /**

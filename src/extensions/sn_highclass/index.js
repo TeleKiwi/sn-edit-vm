@@ -333,6 +333,21 @@ class HighClass {
                         }
                     }
                 },
+                {
+                    opcode: 'comment',
+                    text: formatMessage({
+                        id: 'sn.blocks.comment',
+                        default: '//',
+                        description: 'Organize your code by adding Notes!'
+                    }),
+                    blockType: BlockType.COMMAND,
+                    arguments: {
+                        input: {
+                        type: ArgumentType.STRING,
+                        defaultValue: "Hello!"
+                    },
+                    },
+                },
                 
             ],
             menus: {
@@ -473,6 +488,10 @@ class HighClass {
 
     clamp({input, min, max}) {
         return Math.min(Math.max(input, min), max);
+    }
+
+    comment() {
+        return;
     }
 
 }

@@ -325,15 +325,15 @@ class HighClass {
                     blockType: BlockType.REPORTER,
                     arguments: {
                         find: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: ArgumentType.STRING,
                             defaultValue: "Foo",
                         },
                         replace: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: ArgumentType.STRING,
                             defaultValue: "Foobar",
                         },
                         text: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: ArgumentType.STRING,
                             defaultValue: "Foo",
                         }
                     }

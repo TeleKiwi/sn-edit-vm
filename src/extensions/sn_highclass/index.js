@@ -387,6 +387,20 @@ class HighClass {
                     },
                     },
                 },
+                {
+                    opcode: 'capitalize',
+                    text: formatMessage({
+                        id: 'sn.blocks.cap',
+                        default: 'Capitalize [text]'
+                    }),
+                    blockType: BlockType.REPORTER,
+                    arguments: {
+                        text: {
+                            type: ArgumentType.STRING,
+                            defaultValue: caps
+                        }
+                    }
+                }
                 
             ],
             menus: {
@@ -442,6 +456,10 @@ class HighClass {
                 }
             }
         };
+    }
+
+    capitalize (args, utils) {
+        return args.text.toUpperCase()
     }
 
     replace (args,utils) {

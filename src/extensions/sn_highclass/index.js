@@ -478,6 +478,50 @@ class HighClass {
                         }
                     }
                 },
+                {
+                    opcode: 'pointxy',
+                    text: formatMessage({
+                        id: 'sn.blocks.pointxy',
+                        default: 'Point to X: [x] Y: [y]'
+                    }),
+                    blockType: BlockType.COMMAND,
+                    arguments: {
+                        x: {
+                            type: ArgumentType.NUMBER,
+                            default: '0'
+                        },
+                        y: {
+                            type: ArgumentType.NUMBER,
+                            default: '0'
+                        }
+                    }
+                },
+                {
+                    opcode: 'getdistance',
+                    text: formatMessage({
+                        id: 'sn.blocks.distance',
+                        default: 'Distance from X: [x] Y: [y] to X: [tx] Y: [ty]'
+                    }),
+                    blockType: BlockType.REPORTER,
+                    arguments: {
+                        x: {
+                            type: ArgumentType.NUMBER,
+                            default: '0'
+                        },
+                        y: {
+                            type: ArgumentType.NUMBER,
+                            default: '0'
+                        },
+                        tx: {
+                            type: ArgumentType.NUMBER,
+                            default: '0'
+                        },
+                        ty: {
+                            type: ArgumentType.NUMBER,
+                            default: '0'
+                        }
+                    }
+                },
 
                 
             ],
@@ -657,6 +701,28 @@ class HighClass {
         return;
     }
 
+    pointxy({x,y}) {
+        const x = Cast.toNumber(args.x);
+        const y = Cast.toNumber(args.y);
+        const sx = util.target.x;
+        const sy = util.target.y;
+        const direction = Math.atan((x - sx) / (y - sy)) - 180 * (y < sy);
+        util.target.setDirection(direction);
+    }
+
+    getdistance({x,y,tx,ty}) {
+        const x = Cast.toNumber(args.x);
+        const y = Cast.toNumber(args.y);
+        const tx = Cast.toNumber(args.tx);
+        const ty = Cast.toNumber(args.ty);
+        var xd = x1 - x2;
+        var yd = y1 - y2;
+        return Math.sqrt( xd * xd + yd * yd );
+    }
+
 }
 
 module.exports = HighClass;
+
+
+

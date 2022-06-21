@@ -28,8 +28,6 @@ For more technical information, read the code in src/compiler.
 
 This section was too out of date to be useful. We hope to re-add it as some point.
 
-<!--
-
 ## scratch-vm
 #### Scratch VM is a library for representing, running, and maintaining the state of computer programs written using [Scratch Blocks](https://github.com/LLK/scratch-blocks).
 

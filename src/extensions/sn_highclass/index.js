@@ -569,7 +569,7 @@ class HighClass {
     }
 
     getLetters (args, utils) {
-        return STRING.slice(Math.max(1, args.START) - 1, Math.min(STRING.length, args.END)); // --> Not sure if I defined the args correctly but its fine
+        return args.STRING.slice(Math.max(1, args.START) - 1, Math.min(args.STRING.length, args.END)); // --> Not sure if I defined the args correctly but its fine
     }
 
     currentMillisecond() {

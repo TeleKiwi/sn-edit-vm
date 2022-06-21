@@ -211,7 +211,7 @@ class HighClass {
                         default: '[A] ^ [B]',
                         description: 'Block that returns A^B'
                     }),
-                    blockType: BlockType.BOOLEAN,
+                    blockType: BlockType.REPORTER,
                     arguments: {
                         A: {
                             type: ArgumentType.NUMBER,

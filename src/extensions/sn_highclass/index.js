@@ -702,16 +702,16 @@ class HighClass {
         return;
     }
 
-    pointxy({x,y}) {
+    pointxy({args, utils}) {
         const x = Cast.toNumber(args.x);
         const y = Cast.toNumber(args.y);
-        const sx = util.target.x;
-        const sy = util.target.y;
+        const sx = utils.target.x;
+        const sy = utils.target.y;
         const direction = Math.atan((x - sx) / (y - sy)) - 180 * (y < sy);
-        util.target.setDirection(direction);
+        utils.target.setDirection(direction);
     }
 
-    getdistance({x,y,tx,ty}) {
+    getdistance({args, utils}) {
         const x = Cast.toNumber(args.x);
         const y = Cast.toNumber(args.y);
         const tx = Cast.toNumber(args.tx);

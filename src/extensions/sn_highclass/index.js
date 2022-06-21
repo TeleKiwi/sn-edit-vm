@@ -307,7 +307,7 @@ class HighClass {
                         default: 'Reverse Text [text]',
                         description: 'Reverses text'
                     }),
-                    blockType: BlockType.COMMAND,
+                    blockType: BlockType.REPORTER,
                     arguments: {
                         text: {
                             type: ArgumentType.STRING,
@@ -322,7 +322,7 @@ class HighClass {
                         default: 'replace [find] with [replace] in [text]',
                         description: 'replace text'
                     }),
-                    blockType: BlockType.COMMAND,
+                    blockType: BlockType.REPORTER,
                     arguments: {
                         find: {
                             type: Scratch.ArgumentType.STRING,
@@ -363,7 +363,7 @@ class HighClass {
                         default: 'Mouse [view]',
                         description: 'Hide/Show the mouse'
                     }),
-                    blockType: BlockType.BOOLEAN,
+                    blockType: BlockType.COMMAND,
                     arguments: {
                         viewoption: {
                             type: ArgumentType.NUMBER,
@@ -376,12 +376,12 @@ class HighClass {
                     opcode: 'comment',
                     text: formatMessage({
                         id: 'sn.blocks.comment',
-                        default: '//',
+                        default: '// [note]',
                         description: 'Organize your code by adding Notes!'
                     }),
                     blockType: BlockType.COMMAND,
                     arguments: {
-                        input: {
+                        note: {
                         type: ArgumentType.STRING,
                         defaultValue: "Hello!"
                     },

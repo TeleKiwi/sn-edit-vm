@@ -27,6 +27,9 @@ document.onkeydown = function(evt) {
     }
 }
 
+// --> i is variable commonly used for counters. In lua for example it is used in for loops `for i, v in pairs() do `
+var i = 1
+
 /**
  * @constructor
  */
@@ -230,6 +233,7 @@ class HighClass {
                         default: 'if [A] then [B] else [C]',
                         description: 'Dynamic If Statements'
                     }),
+                    disableMonitor: true,
                     blockType: BlockType.REPORTER,
                     arguments: {
                         A: {
@@ -252,6 +256,7 @@ class HighClass {
                         default: 'letters [START] to [END] of [STRING]',
                         description: 'returns a set of letters.'
                     }),
+                    disableMonitor: true,
                     blockType: BlockType.REPORTER,
                     arguments: {
                         START: {
@@ -284,6 +289,7 @@ class HighClass {
                         default: 'Clamp [input] Min: [min] Max: [max]',
                         description: 'Clamps a number between a minimum and a maximum'
                     }),
+                    disableMonitor: true,
                     blockType: BlockType.REPORTER,
                     arguments: {
                         input: {
@@ -307,6 +313,7 @@ class HighClass {
                         default: 'Reverse Text [text]',
                         description: 'Reverses text'
                     }),
+                    disableMonitor: true,
                     blockType: BlockType.REPORTER,
                     arguments: {
                         text: {
@@ -322,6 +329,7 @@ class HighClass {
                         default: 'replace [find] with [replace] in [text]',
                         description: 'replace text'
                     }),
+                    disableMonitor: true,
                     blockType: BlockType.REPORTER,
                     arguments: {
                         find: {
@@ -387,6 +395,90 @@ class HighClass {
                     },
                     },
                 },
+                {
+                    opcode: 'capitalize',
+                    text: formatMessage({
+                        id: 'sn.blocks.cap',
+                        default: 'Capitalize [text]',
+                        description: 'Speak normally.'
+                    }),
+                    disableMonitor: true,
+                    blockType: BlockType.REPORTER,
+                    arguments: {
+                        text: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'caps'
+                        }
+                    }
+                },
+                {
+                    opcode: 'caps',
+                    text: formatMessage({
+                        id: 'sn.blocks.cruisecontrol',
+                        default: 'Cap Lock [text]',
+                        description: 'CRUISE CONTROL!'
+                    }),
+                    disableMonitor: true,
+                    blockType: BlockType.REPORTER,
+                    arguments: {
+                        text: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'cruise control'
+                        }
+                    }
+                },
+                {
+                    opcode: 'I',
+                    text: formatMessage({
+                        id: 'sn.blocks.counter',
+                        default: 'i',
+                        description: 'A variable for counters'
+                    }),
+                    blockType: BlockType.REPORTER
+                },
+                {
+                    opcode: 'setI',
+                    text: formatMessage({
+                        id: 'sn.blocks.setcounter',
+                        default: 'set i to [A]'
+                    }),
+                    blockType: BlockType.COMMAND,
+                    arguments: {
+                        A: {
+                            type: ArgumentType.NUMBER,
+                            default: '1'
+                        }
+                    }
+                },
+                {
+                    opcode: 'increaseI',
+                    text: formatMessage({
+                        id: 'sn.blocks.increasecounter',
+                        default: 'increase i by [A]'
+                    }),
+                    blockType: BlockType.COMMAND,
+                    arguments: {
+                        A: {
+                            type: ArgumentType.NUMBER,
+                            default: '1'
+                        }
+                    }
+                },
+                {
+                    opcode: 'decreaseI',
+                    text: formatMessage({
+                        id: 'sn.blocks.decreasecounter',
+                        default: 'decrease i by [A]'
+                    }),
+                    blockType: BlockType.COMMAND,
+                    arguments: {
+                        A: {
+                            type: ArgumentType.NUMBER,
+                            default: '1'
+                        }
+                    }
+                },
+
                 
             ],
             menus: {
@@ -423,7 +515,7 @@ class HighClass {
                     items: [
                         {
                             text: formatMessage({
-                                id: 'tw.blocks.mouseview.show',
+                                id: 'sn.blocks.mouseview.show',
                                 default: 'Show',
                                 description: 'Show the mouse onscreen'
                             }),
@@ -431,7 +523,7 @@ class HighClass {
                         },
                         {
                             text: formatMessage({
-                                id: 'tw.blocks.mouseview.hide',
+                                id: 'sn.blocks.mouseview.hide',
                                 default: 'Hide',
                                 description: 'Hide the mouse onscreen'
                             }),
@@ -442,6 +534,30 @@ class HighClass {
                 }
             }
         };
+    }
+
+    decreaseI (args, utils) {
+        i -= args.A
+    }
+
+    increaseI (args, utils) {
+        i += args.A
+    }
+
+    setI (args, utils) {
+        i = args.A
+    }
+
+    I (args, utils) {
+        return i
+    }
+
+    capitalize (args, utils) {
+        return args.text.charAt(0).toUpperCase() + args.TEXT.slice(1);
+    }
+
+    caps (args, utils) {
+        return args.text.toUpperCase()
     }
 
     replace (args,utils) {

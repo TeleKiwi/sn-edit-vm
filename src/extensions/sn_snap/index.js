@@ -100,10 +100,11 @@ const audio = []
         // --> make sure they're playing an mp3
         var ext = args.url.charAt(args.url.length - 3) + args.url.charAt(args.url.length - 2) +  args.url.charAt(args.url.length - 1) + args.url.charAt(args.url.length)
         if(ext = '.mp3') {
-            audio[audio.length] = new Audio(args.url)
-            audio[audio.length].type = 'audio/mp3';
+            var newAudio = new Audio(args.url)
+            audio[audio.length] = newAudio
+            newAudio.type = 'audio/mp3';
             try {
-                audio[audio.length].play()
+                newAudio.play()
                 console.log('playing');
             } catch {
                 Swal.fire({

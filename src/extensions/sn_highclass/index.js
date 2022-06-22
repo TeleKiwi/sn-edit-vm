@@ -335,15 +335,15 @@ class HighClass {
                     arguments: {
                         find: {
                             type: ArgumentType.STRING,
-                            defaultValue: "Foo",
+                            defaultValue: "World",
                         },
                         replace: {
                             type: ArgumentType.STRING,
-                            defaultValue: "Foobar",
+                            defaultValue: "testSubject",
                         },
                         text: {
                             type: ArgumentType.STRING,
-                            defaultValue: "Foo",
+                            defaultValue: "Hello World!",
                         }
                     }
                 },

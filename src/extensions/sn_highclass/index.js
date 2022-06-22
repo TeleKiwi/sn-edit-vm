@@ -251,6 +251,30 @@ class HighClass {
                     }
                 },
                 {
+                    opcode: 'isbetween',
+                    text: formatMessage({
+                        id: 'sn.blocks.isbetween',
+                        default: 'Is [input] between [start] and [end]',
+                        description: 'Checks if a number is between to values'
+                    }),
+                    disableMonitor: true,
+                    blockType: BlockType.BOOLEAN,
+                    arguments: {
+                        input: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: "5"
+                        },
+                        start: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: "1"
+                        },
+                        end: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: "10"
+                        },
+                    }
+                },
+                {
                     opcode: 'getLetters',
                     text: formatMessage({
                         id: 'sn.blocks.get',
@@ -623,6 +647,14 @@ class HighClass {
 
     ternaryOperator({A, B, C}) {
         return A ? B : C;
+    }
+
+    isbetween({input, start, end}) {
+        if (input > start && input < end) {
+            return true;
+          } else {
+            return false
+          }
     }
 
     setCursor (args, utils) {

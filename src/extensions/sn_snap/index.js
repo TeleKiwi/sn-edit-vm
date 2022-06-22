@@ -53,7 +53,7 @@ const audio = []
                     opcode: 'stopsound',
                     text: formatMessage({
                         id: 'sn.blocks.stopsound',
-                        default: 'Stop Sound [ID]',
+                        default: 'Stop Sound [id]',
                         description: 'Stop the music,'
                     }),
                     blockType: BlockType.COMMAND,
@@ -90,20 +90,6 @@ const audio = []
                             defaultValue: true
                         }
                     }
-                },
-                {
-                    opcode: 'getID',
-                    text: formatMessage({
-                        id: 'sn.blocks.getid',
-                        defualt: 'Get ID of [url]'
-                    }),
-                    blockType: BlockType.REPORTER,
-                    arguments: {
-                        id: {
-                            type: ArgumentType.NUMBER,
-                            defaultValue: '1'
-                        }
-                    }
                 }
             ]
         }
@@ -111,8 +97,10 @@ const audio = []
 
     playsound (args, utils) {
         // --> Now before I begin I've never done this before so expect bugs 
-        // --> First try? Thats new.
-        audio[audio.length] = new Audio(args.url)
+        // --> make sure they're playing an mp3
+        var ext = args.url.charAt(args.url.length - 3) + args.url.charAt(args.url.length - 2) +  args.url.charAt(args.url.length - 1) + args.url.charAt(args.url.length)
+        if(ext = '.mp3') {
+            audio[audio.length] = new Audio(args.url)
             audio.type = 'audio/mp3';
             try {
                 audio.play()
@@ -123,20 +111,25 @@ const audio = []
                     text: "We're unable to play your audio",
                     icon: 'error',
                     confirmButtonText: 'Ok.'
-                    })
+                  })
             }
+        } else {
+            Swal.fire({
+                title: "Audio Error",
+                text: "Invalid Audio Type. Only MP3 is supported",
+                icon: 'error',
+                confirmButtonText: 'Ok.'
+              })
+        }
     }
     stopsound (args, utils) {
         audio[args.id].stop()
     }
     myAudio (args, utils) {
-        return audio
+        return audio.toString();
     }
     loopAudio (args, utils) {
         audio[args.id].loop = args.checked
-    }
-    getID (args, utils) {
-        return audio.indexOf(args.url)
     }
 }
 

@@ -734,13 +734,18 @@ class HighClass {
         return;
     }
 
-    pointxy({args, utils}) {
+    pointxy({x, y}) {
         const x = Cast.toNumber(args.x);
         const y = Cast.toNumber(args.y);
         const sx = utils.target.x;
         const sy = utils.target.y;
-        const direction = Math.atan((x - sx) / (y - sy)) - 180 * (y < sy);
-        utils.target.setDirection(direction);
+        var direction = Math.atan2(
+            targety - y,
+            targetx - x
+        )
+        output *= 180;
+        output /= Math.PI
+        utils.target.setDirection(output);
     }
 
     getdistance({args, utils}) {

@@ -86,7 +86,7 @@ var audio
         var ext = args.url.charAt(args.url.length - 3) + args.url.charAt(args.url.length - 2) +  args.url.charAt(args.url.length - 1) + args.url.charAt(args.url.length)
         if(ext = '.mp3') {
             if(audio !== undefined) {
-                audio.stop()
+                audio.pause()
             }
             audio = new Audio(args.url)
             audio.type = 'audio/mp3';
@@ -111,7 +111,7 @@ var audio
         }
     }
     stopsound (args, utils) {
-        audio.stop()
+        audio.pause()
     }
     loopAudio (args, utils) {
         audio.loop = args.checked

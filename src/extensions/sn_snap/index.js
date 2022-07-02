@@ -53,25 +53,10 @@ var audio
                     opcode: 'stopsound',
                     text: formatMessage({
                         id: 'sn.blocks.stopsound',
-                        default: 'Stop Sound [id]',
+                        default: 'Stop Sound',
                         description: 'Stop the music,'
                     }),
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        id: {
-                            type: ArgumentType.NUMBER,
-                            defaultValue: '1'
-                        }
-                    }
-                },
-                {
-                    opcode: 'myAudio',
-                    text: formatMessage({
-                        id: 'sn.blocks.mysounds',
-                        default: 'Sounds',
-                        description: 'return all the audios'
-                    }),
-                    blockType: BlockType.REPORTER
+                    blockType: BlockType.COMMAND
                 },
                 {
                     opcode: 'loopAudio',
@@ -127,9 +112,6 @@ var audio
     }
     stopsound (args, utils) {
         audio.stop()
-    }
-    myAudio (args, utils) {
-        return audio.toString();
     }
     loopAudio (args, utils) {
         audio.loop = args.checked

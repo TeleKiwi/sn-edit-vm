@@ -471,7 +471,7 @@ class HighClass {
                     arguments: {
                         A: {
                             type: ArgumentType.NUMBER,
-                            default: '1'
+                            defaultValue: '1'
                         }
                     }
                 },
@@ -485,7 +485,7 @@ class HighClass {
                     arguments: {
                         A: {
                             type: ArgumentType.NUMBER,
-                            default: '1'
+                            defaultValue: '1'
                         }
                     }
                 },
@@ -499,7 +499,7 @@ class HighClass {
                     arguments: {
                         A: {
                             type: ArgumentType.NUMBER,
-                            default: '1'
+                            defaultValue: '1'
                         }
                     }
                 },
@@ -513,11 +513,11 @@ class HighClass {
                     arguments: {
                         x: {
                             type: ArgumentType.NUMBER,
-                            default: '0'
+                            defaultValue: '0'
                         },
                         y: {
                             type: ArgumentType.NUMBER,
-                            default: '0'
+                            defaultValue: '0'
                         }
                     }
                 },
@@ -531,19 +531,19 @@ class HighClass {
                     arguments: {
                         x: {
                             type: ArgumentType.NUMBER,
-                            default: '0'
+                            defaultValue: '0'
                         },
                         y: {
                             type: ArgumentType.NUMBER,
-                            default: '0'
+                            defaultValue: '0'
                         },
                         tx: {
                             type: ArgumentType.NUMBER,
-                            default: '0'
+                            defaultValue: '0'
                         },
                         ty: {
                             type: ArgumentType.NUMBER,
-                            default: '0'
+                            defaultValue: '0'
                         }
                     }
                 },

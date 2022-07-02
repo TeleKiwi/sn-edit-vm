@@ -726,22 +726,22 @@ class HighClass {
         input="";
     }
 
-    clamp({input, min, max}) {
-        return Math.min(Math.max(input, min), max);
+    clamp({args, utils}) {
+        return Math.min(Math.max(args.input, args.min), args.max);
     }
 
     comment() {
         return;
     }
 
-    pointxy({x, y}) {
+    pointxy({args, utils}) {
         const x = Cast.toNumber(args.x);
         const y = Cast.toNumber(args.y);
         const sx = utils.target.x;
         const sy = utils.target.y;
         var direction = Math.atan2(
-            targety - y,
-            targetx - x
+            sy - y,
+            sx - x
         )
         output *= 180;
         output /= Math.PI

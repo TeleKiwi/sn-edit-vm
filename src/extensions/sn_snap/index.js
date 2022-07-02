@@ -104,9 +104,9 @@ var audio
                 audio.stop()
             }
             audio = new Audio(args.url)
-            newAudio.type = 'audio/mp3';
+            audio.type = 'audio/mp3';
             try {
-                newAudio.play()
+                audio.play()
                 console.log('playing');
             } catch {
                 Swal.fire({

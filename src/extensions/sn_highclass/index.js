@@ -389,22 +389,23 @@ class HighClass {
                     }),
                     blockType: BlockType.COMMAND
                 },
-                {
-                    opcode: 'mouseview',
-                    text: formatMessage({
-                        id: 'tw.blocks.mouseview',
-                        default: 'Mouse [view]',
-                        description: 'Hide/Show the mouse'
-                    }),
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        viewoption: {
-                            type: ArgumentType.NUMBER,
-                            menu: 'mouseviewmenu',
-                            defaultValue: '0'
-                        }
-                    }
-                },
+//                 Temporarily Depricate the Mouseview item
+//                 {
+//                     opcode: 'mouseview',
+//                     text: formatMessage({
+//                         id: 'tw.blocks.mouseview',
+//                         default: 'Mouse [view]',
+//                         description: 'Hide/Show the mouse'
+//                     }),
+//                     blockType: BlockType.COMMAND,
+//                     arguments: {
+//                         viewoption: {
+//                             type: ArgumentType.NUMBER,
+//                             menu: 'mouseviewmenu',
+//                             defaultValue: '0'
+//                         }
+//                     }
+//                 },
                 {
                     opcode: 'comment',
                     text: formatMessage({
@@ -622,7 +623,7 @@ class HighClass {
     }
 
     capitalize (args, utils) {
-        return args.text.charAt(0).toUpperCase() + args.TEXT.slice(1);
+        return args.text.charAt(0).toUpperCase() + args.text.slice(1);
     }
 
     caps (args, utils) {
@@ -726,8 +727,8 @@ class HighClass {
         input="";
     }
 
-    clamp({args, utils}) {
-        return Math.min(Math.max(args.input, args.min), args.max);
+    clamp({input, min, max}) {
+        return Math.min(Math.max(input, min), max);
     }
 
     comment() {

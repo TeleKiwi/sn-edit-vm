@@ -389,22 +389,23 @@ class HighClass {
                     }),
                     blockType: BlockType.COMMAND
                 },
-                {
-                    opcode: 'mouseview',
-                    text: formatMessage({
-                        id: 'tw.blocks.mouseview',
-                        default: 'Mouse [view]',
-                        description: 'Hide/Show the mouse'
-                    }),
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        viewoption: {
-                            type: ArgumentType.NUMBER,
-                            menu: 'mouseviewmenu',
-                            defaultValue: '0'
-                        }
-                    }
-                },
+//                 Temporarily Depricate the Mouseview item
+//                 {
+//                     opcode: 'mouseview',
+//                     text: formatMessage({
+//                         id: 'tw.blocks.mouseview',
+//                         default: 'Mouse [view]',
+//                         description: 'Hide/Show the mouse'
+//                     }),
+//                     blockType: BlockType.COMMAND,
+//                     arguments: {
+//                         viewoption: {
+//                             type: ArgumentType.NUMBER,
+//                             menu: 'mouseviewmenu',
+//                             defaultValue: '0'
+//                         }
+//                     }
+//                 },
                 {
                     opcode: 'comment',
                     text: formatMessage({
@@ -471,7 +472,7 @@ class HighClass {
                     arguments: {
                         A: {
                             type: ArgumentType.NUMBER,
-                            default: '1'
+                            defaultValue: '1'
                         }
                     }
                 },
@@ -485,7 +486,7 @@ class HighClass {
                     arguments: {
                         A: {
                             type: ArgumentType.NUMBER,
-                            default: '1'
+                            defaultValue: '1'
                         }
                     }
                 },
@@ -499,7 +500,7 @@ class HighClass {
                     arguments: {
                         A: {
                             type: ArgumentType.NUMBER,
-                            default: '1'
+                            defaultValue: '1'
                         }
                     }
                 },
@@ -513,11 +514,11 @@ class HighClass {
                     arguments: {
                         x: {
                             type: ArgumentType.NUMBER,
-                            default: '0'
+                            defaultValue: '0'
                         },
                         y: {
                             type: ArgumentType.NUMBER,
-                            default: '0'
+                            defaultValue: '0'
                         }
                     }
                 },
@@ -531,19 +532,19 @@ class HighClass {
                     arguments: {
                         x: {
                             type: ArgumentType.NUMBER,
-                            default: '0'
+                            defaultValue: '0'
                         },
                         y: {
                             type: ArgumentType.NUMBER,
-                            default: '0'
+                            defaultValue: '0'
                         },
                         tx: {
                             type: ArgumentType.NUMBER,
-                            default: '0'
+                            defaultValue: '0'
                         },
                         ty: {
                             type: ArgumentType.NUMBER,
-                            default: '0'
+                            defaultValue: '0'
                         }
                     }
                 },
@@ -622,7 +623,7 @@ class HighClass {
     }
 
     capitalize (args, utils) {
-        return args.text.charAt(0).toUpperCase() + args.TEXT.slice(1);
+        return args.text.charAt(0).toUpperCase() + args.text.slice(1);
     }
 
     caps (args, utils) {
@@ -734,7 +735,7 @@ class HighClass {
         return;
     }
 
-    pointxy({x, y}) {
+    pointxy({args, utils}) {
         const x = Cast.toNumber(args.x);
         const y = Cast.toNumber(args.y);
         const sx = utils.target.x;

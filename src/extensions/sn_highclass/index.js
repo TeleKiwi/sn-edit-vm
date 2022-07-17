@@ -740,8 +740,8 @@ class HighClass {
         const sx = utils.target.x;
         const sy = utils.target.y;
         var direction = Math.atan2(
-            targety - y,
-            targetx - x
+            sy - y,
+            sx - x
         )
         output *= 180;
         output /= Math.PI

@@ -735,9 +735,7 @@ class HighClass {
         return;
     }
 
-    pointxy({args, utils}) {
-        const x = Cast.toNumber(args.x);
-        const y = Cast.toNumber(args.y);
+    pointxy({x, y}) {
         const sx = utils.target.x;
         const sy = utils.target.y;
         var direction = Math.atan2(

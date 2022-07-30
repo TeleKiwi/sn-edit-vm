@@ -515,23 +515,23 @@ class HighClass {
                     opcode: 'getdistance',
                     text: formatMessage({
                         id: 'sn.blocks.distance',
-                        default: 'Distance from X: [x] Y: [y] to X: [tx] Y: [ty]'
+                        default: 'Distance from X: [x1] Y: [y1] to X: [x2] Y: [y2]'
                     }),
                     blockType: BlockType.REPORTER,
                     arguments: {
-                        x: {
+                        x1: {
                             type: ArgumentType.NUMBER,
                             defaultValue: '0'
                         },
-                        y: {
+                        y1: {
                             type: ArgumentType.NUMBER,
                             defaultValue: '0'
                         },
-                        tx: {
+                        x2: {
                             type: ArgumentType.NUMBER,
                             defaultValue: '0'
                         },
-                        ty: {
+                        y2: {
                             type: ArgumentType.NUMBER,
                             defaultValue: '0'
                         }
@@ -736,14 +736,10 @@ class HighClass {
         utils.target.setDirection(output);
     }
 
-    getdistance({args, utils}) {
-        const x = Cast.toNumber(args.x);
-        const y = Cast.toNumber(args.y);
-        const tx = Cast.toNumber(args.tx);
-        const ty = Cast.toNumber(args.ty);
-        var xd = x1 - x2;
-        var yd = y1 - y2;
-        return Math.sqrt( xd * xd + yd * yd );
+    getdistance({x1,y1,x2,y2}) {
+        let y = x2 - x1;
+        let x = y2 - y1;
+        return Math.sqrt(x * x + y * y);
     }
 
 }

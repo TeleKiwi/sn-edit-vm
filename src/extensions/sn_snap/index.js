@@ -62,14 +62,10 @@ var audio
                     opcode: 'loopAudio',
                     text: formatMessage({
                         id: 'sn.blocks.loop',
-                        default: 'Set looped for sound [id] to [checked]'
+                        default: 'Set looped for sound to [checked]'
                     }),
                     blockType: BlockType.COMMAND,
                     arguments: {
-                        id: {
-                            type: ArgumentType.NUMBER,
-                            defaultValue: '1'
-                        },
                         checked: {
                             type: ArgumentType.BOOLEAN,
                             defaultValue: true

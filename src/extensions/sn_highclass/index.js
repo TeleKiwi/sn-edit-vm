@@ -51,7 +51,7 @@ class HighClass {
                 {
                     opcode: 'getLastKeyPressed',
                     text: formatMessage({
-                        id: 'tw.blocks.lastKeyPressed',
+                        id: 'sn.blocks.lastKeyPressed',
                         default: 'last input',
                         description: 'Block that returns the last key that was pressed'
                     }),
@@ -61,7 +61,7 @@ class HighClass {
                 {
                     opcode: 'getButtonIsDown',
                     text: formatMessage({
-                        id: 'tw.blocks.buttonIsDown',
+                        id: 'sn.blocks.buttonIsDown',
                         default: 'mouse button [MOUSE_BUTTON] down?',
                         description: 'Block that returns whether a specific mouse button is down'
                     }),
@@ -382,7 +382,7 @@ class HighClass {
 //                 {
 //                     opcode: 'mouseview',
 //                     text: formatMessage({
-//                         id: 'tw.blocks.mouseview',
+//                         id: 'sn.blocks.mouseview',
 //                         default: 'Mouse [view]',
 //                         description: 'Hide/Show the mouse'
 //                     }),
@@ -545,7 +545,7 @@ class HighClass {
                     items: [
                         {
                             text: formatMessage({
-                                id: 'tw.blocks.mouseButton.primary',
+                                id: 'sn.blocks.mouseButton.primary',
                                 default: '(0) primary',
                                 description: 'Dropdown item to select primary (usually left) mouse button'
                             }),
@@ -553,7 +553,7 @@ class HighClass {
                         },
                         {
                             text: formatMessage({
-                                id: 'tw.blocks.mouseButton.middle',
+                                id: 'sn.blocks.mouseButton.middle',
                                 default: '(1) middle',
                                 description: 'Dropdown item to select middle mouse button'
                             }),
@@ -561,7 +561,7 @@ class HighClass {
                         },
                         {
                             text: formatMessage({
-                                id: 'tw.blocks.mouseButton.secondary',
+                                id: 'sn.blocks.mouseButton.secondary',
                                 default: '(2) secondary',
                                 description: 'Dropdown item to select secondary (usually right) mouse button'
                             }),

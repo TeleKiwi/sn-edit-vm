@@ -51,7 +51,7 @@ class HighClass {
                 {
                     opcode: 'getLastKeyPressed',
                     text: formatMessage({
-                        id: 'tw.blocks.lastKeyPressed',
+                        id: 'sn.blocks.lastKeyPressed',
                         default: 'last input',
                         description: 'Block that returns the last key that was pressed'
                     }),
@@ -61,7 +61,7 @@ class HighClass {
                 {
                     opcode: 'getButtonIsDown',
                     text: formatMessage({
-                        id: 'tw.blocks.buttonIsDown',
+                        id: 'sn.blocks.buttonIsDown',
                         default: 'mouse button [MOUSE_BUTTON] down?',
                         description: 'Block that returns whether a specific mouse button is down'
                     }),
@@ -382,7 +382,7 @@ class HighClass {
 //                 {
 //                     opcode: 'mouseview',
 //                     text: formatMessage({
-//                         id: 'tw.blocks.mouseview',
+//                         id: 'sn.blocks.mouseview',
 //                         default: 'Mouse [view]',
 //                         description: 'Hide/Show the mouse'
 //                     }),
@@ -523,23 +523,23 @@ class HighClass {
                     opcode: 'getdistance',
                     text: formatMessage({
                         id: 'sn.blocks.distance',
-                        default: 'Distance from X: [x] Y: [y] to X: [tx] Y: [ty]'
+                        default: 'Distance from X: [x1] Y: [y1] to X: [x2] Y: [y2]'
                     }),
                     blockType: BlockType.REPORTER,
                     arguments: {
-                        x: {
+                        x1: {
                             type: ArgumentType.NUMBER,
                             defaultValue: '0'
                         },
-                        y: {
+                        y1: {
                             type: ArgumentType.NUMBER,
                             defaultValue: '0'
                         },
-                        tx: {
+                        x2: {
                             type: ArgumentType.NUMBER,
                             defaultValue: '0'
                         },
-                        ty: {
+                        y2: {
                             type: ArgumentType.NUMBER,
                             defaultValue: '0'
                         }
@@ -553,7 +553,7 @@ class HighClass {
                     items: [
                         {
                             text: formatMessage({
-                                id: 'tw.blocks.mouseButton.primary',
+                                id: 'sn.blocks.mouseButton.primary',
                                 default: '(0) primary',
                                 description: 'Dropdown item to select primary (usually left) mouse button'
                             }),
@@ -561,7 +561,7 @@ class HighClass {
                         },
                         {
                             text: formatMessage({
-                                id: 'tw.blocks.mouseButton.middle',
+                                id: 'sn.blocks.mouseButton.middle',
                                 default: '(1) middle',
                                 description: 'Dropdown item to select middle mouse button'
                             }),
@@ -569,7 +569,7 @@ class HighClass {
                         },
                         {
                             text: formatMessage({
-                                id: 'tw.blocks.mouseButton.secondary',
+                                id: 'sn.blocks.mouseButton.secondary',
                                 default: '(2) secondary',
                                 description: 'Dropdown item to select secondary (usually right) mouse button'
                             }),
@@ -742,14 +742,10 @@ class HighClass {
         return output
     }
 
-    getdistance({args, utils}) {
-        const x = Cast.toNumber(args.x);
-        const y = Cast.toNumber(args.y);
-        const tx = Cast.toNumber(args.tx);
-        const ty = Cast.toNumber(args.ty);
-        var xd = x1 - x2;
-        var yd = y1 - y2;
-        return Math.sqrt( xd * xd + yd * yd );
+    getdistance({x1,y1,x2,y2}) {
+        let y = x2 - x1;
+        let x = y2 - y1;
+        return Math.sqrt(x * x + y * y);
     }
 
 }

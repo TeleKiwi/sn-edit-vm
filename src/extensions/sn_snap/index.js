@@ -59,17 +59,31 @@ var audio
                     blockType: BlockType.COMMAND
                 },
                 {
+                    opcode: 'audioTime',
+                    text: formatMessage({
+                        id: 'sn.blocks.currentAudioTime',
+                        defualt: 'Current Timestamp',
+                        description: "Returm the current timestamp"
+                    }),
+                    blockType: BlockType.REPORTER
+                },
+                {
+                    opcode: 'lengthAudio',
+                    text: formatMessage({
+                        id: 'sn.blocks.currentAudioTime',
+                        defualt: 'Audio Duration',
+                        description: "Returm the current timestamp"
+                    }),
+                    blockType: BlockType.REPORTER
+                },
+                {
                     opcode: 'loopAudio',
                     text: formatMessage({
                         id: 'sn.blocks.loop',
-                        default: 'Set looped for sound [id] to [checked]'
+                        default: 'Set looped for sound to [checked]'
                     }),
                     blockType: BlockType.COMMAND,
                     arguments: {
-                        id: {
-                            type: ArgumentType.NUMBER,
-                            defaultValue: '1'
-                        },
                         checked: {
                             type: ArgumentType.BOOLEAN,
                             defaultValue: true
@@ -112,6 +126,12 @@ var audio
     }
     stopsound (args, utils) {
         audio.pause()
+    }
+    audioTime (args, utils) {
+        return audio.currentTime
+    }
+    lengthAudio (args, utils) {
+        return audio.duration
     }
     loopAudio (args, utils) {
         audio.loop = args.checked

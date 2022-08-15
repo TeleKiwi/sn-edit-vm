@@ -494,18 +494,26 @@ class HighClass {
                     }
                 },
                 {
-                    opcode: 'pointxy',
+                    opcode: 'getdirection',
                     text: formatMessage({
                         id: 'sn.blocks.pointxy',
-                        default: 'Point to X: [x] Y: [y]'
+                        default: 'Direction of [x1] [y1] to [x2] [y2]'
                     }),
                     blockType: BlockType.COMMAND,
                     arguments: {
-                        x: {
+                        x1: {
                             type: ArgumentType.NUMBER,
                             defaultValue: '0'
                         },
-                        y: {
+                        y1: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: '0'
+                        },
+                        x2: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: '0'
+                        },
+                        y2: {
                             type: ArgumentType.NUMBER,
                             defaultValue: '0'
                         }
@@ -724,16 +732,14 @@ class HighClass {
         return;
     }
 
-    pointxy({x, y}) {
-        const sx = utils.target.x;
-        const sy = utils.target.y;
+    getdirection({x1,y1,x2,y2}) {
         var direction = Math.atan2(
-            sy - y,
-            sx - x
+            y1 - y2,
+            x1 - x2
         )
         output *= 180;
         output /= Math.PI
-        utils.target.setDirection(output);
+        return output
     }
 
     getdistance({args, utils}) {

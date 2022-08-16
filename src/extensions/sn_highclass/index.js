@@ -736,7 +736,7 @@ class HighClass {
         var p1 = { x: x1, y: y1 };
         var p2 = { x: x2, y: y2 };
         var angleDeg = Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI;
-        return angleDeg
+        return (angleDeg-90)*-1
     }
 
     getdistance({x1,y1,x2,y2}) {

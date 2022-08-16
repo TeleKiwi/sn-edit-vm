@@ -499,7 +499,7 @@ class HighClass {
                         id: 'sn.blocks.pointxy',
                         default: 'Direction of [x1] [y1] to [x2] [y2]'
                     }),
-                    blockType: BlockType.COMMAND,
+                    blockType: BlockType.REPORTER,
                     arguments: {
                         x1: {
                             type: ArgumentType.NUMBER,

@@ -733,13 +733,10 @@ class HighClass {
     }
 
     getdirection({x1,y1,x2,y2}) {
-        var direction = Math.atan2(
-            y1 - y2,
-            x1 - x2
-        )
-        output *= 180;
-        output /= Math.PI
-        return output
+        var p1 = { x: x1, y: y1 };
+        var p2 = { x: x2, y: y2 };
+        var angleDeg = Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI;
+        return angleDeg
     }
 
     getdistance({x1,y1,x2,y2}) {

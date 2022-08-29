@@ -62,6 +62,9 @@ class Scratch3SensingBlocks {
             sensing_of: this.getAttributeOf,
             sensing_mousex: this.getMouseX,
             sensing_mousey: this.getMouseY,
+            sensing_joystickx: this.getJoystickX,
+            sensing_joysticky: this.getJoystickY,
+            sensing_joystick_direction: this.getJoystickDirection,
             sensing_setdragmode: this.setDragMode,
             sensing_mousedown: this.getMouseDown,
             sensing_keypressed: this.getKeyPressed,
@@ -225,7 +228,19 @@ class Scratch3SensingBlocks {
     getMouseY (args, util) {
         return util.ioQuery('mouse', 'getScratchY');
     }
-
+    // Brought to you by our 'friends' over at clipteam
+    getJoystickX (args, util) {
+        return util.ioQuery('joystick', 'getX');
+    }
+    // Brought to you by our 'friends' over at clipteam
+    getJoystickY (args, util) {
+        return util.ioQuery('joystick', 'getY');
+    }
+    // Brought to you by our 'friends' over at clipteam
+    getJoystickDirection (args, util) {
+        return util.ioQuery('joystick', 'getDirection');
+    }
+  
     getMouseDown (args, util) {
         return util.ioQuery('mouse', 'getIsDown');
     }
@@ -330,6 +345,15 @@ class Scratch3SensingBlocks {
 
     getUsername (args, util) {
         return util.ioQuery('userData', 'getUsername');
+    }
+
+      // Brought to you by our 'friends' over at clipteam
+      colorAt (args) {
+        const renderer = this.runtime.renderer;
+        const x = Cast.toNumber(args.X);
+        const y = Cast.toNumber(args.Y);
+        const {r, g, b} = renderer.extractColor(x, y, 1, true).color;
+        return (r << 16) + (g << 8) + b;
     }
 }
 

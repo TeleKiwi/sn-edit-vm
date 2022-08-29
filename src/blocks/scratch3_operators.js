@@ -157,7 +157,6 @@ class Scratch3OperatorsBlocks {
         const n = Cast.toNumber(args.NUM);
         switch (operator) {
         case 'abs': return Math.abs(n);
-        case 'opp': return n * -1;
         case 'floor': return Math.floor(n);
         case 'ceiling': return Math.ceil(n);
         case 'sqrt': return Math.sqrt(n);

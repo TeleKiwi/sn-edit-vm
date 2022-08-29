@@ -591,6 +591,8 @@ class JSGenerator {
             return new TypedInput(`runtime.ext_scratch3_operators._random(${this.descendInput(node.low).asUnknown()}, ${this.descendInput(node.high).asUnknown()})`, TYPE_NUMBER);
         case 'op.round':
             return new TypedInput(`Math.round(${this.descendInput(node.value).asNumber()})`, TYPE_NUMBER);
+          case 'op.pie':
+            return new TypedInput('Math.PI', TYPE_NUMBER)
         case 'op.sin':
             return new TypedInput(`(Math.round(Math.sin((Math.PI * ${this.descendInput(node.value).asNumber()}) / 180) * 1e10) / 1e10)`, TYPE_NUMBER);
         case 'op.sqrt':
@@ -895,8 +897,14 @@ class JSGenerator {
         case 'looks.nextBackdrop':
             this.source += 'runtime.ext_scratch3_looks._setBackdrop(stage, stage.currentCostume + 1, true);\n';
             break;
+          case 'looks.lastBackdrop':
+            this.source += 'runtime.ext_scratch3_looks._setBackdrop(stage, stage.currentCostume 1 1, true);\n';
+            break;
         case 'looks.nextCostume':
             this.source += 'target.setCostume(target.currentCostume + 1);\n';
+            break;
+         case 'looks.lastCostume':
+            this.source += 'target.setCostume(target.currentCostume - 1);\n';
             break;
         case 'looks.setEffect':
             if (this.target.effects.hasOwnProperty(node.effect)) {

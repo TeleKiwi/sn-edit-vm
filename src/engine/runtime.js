@@ -25,6 +25,7 @@ const Cloud = require('../io/cloud');
 const Keyboard = require('../io/keyboard');
 const Mouse = require('../io/mouse');
 const MouseWheel = require('../io/mouseWheel');
+const Joystick = require('../io/joystick');
 const UserData = require('../io/userData');
 const Video = require('../io/video');
 
@@ -341,6 +342,7 @@ class Runtime extends EventEmitter {
             cloud: new Cloud(this),
             keyboard: new Keyboard(this),
             mouse: new Mouse(this),
+            joystick: new Joystick(this),
             mouseWheel: new MouseWheel(this),
             userData: new UserData(),
             video: new Video(this)

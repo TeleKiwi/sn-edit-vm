@@ -546,24 +546,19 @@ class HighClass {
                     }
                 },
                 {
-                    opcode: 'parseJSON',
-                    blockType: Scratch.BlockType.REPORTER,
+                    opcode: 'customCursor',
                     text: formatMessage({
-                        id: 'sn.blocks.json',
-                        default: '[PATH] of [JSON_STRING]'
+                        id: 'sn.blocks.cursor',
+                        default: 'set custom cursor [link]'
                     }),
+                    blockType: BlockType.COMMAND,
                     arguments: {
-                        PATH: {
-                            type: Scratch.ArgumentType.STRING,
-                            defaultValue: 'fruit/apples',
-                        },
-                        JSON_STRING: {
-                            type: Scratch.ArgumentType.STRING,
-                            defaultValue: '{"fruit": {"apples": 2, "bananas": 3}, "total_fruit": 5}',
-                        },
-                    },
-                },
-
+                      link: {
+                        type: ArgumentType.STRING,
+                        defaultValue: 'url(), auto'
+                      }
+                    }
+                }
                 
             ],
             menus: {
@@ -673,7 +668,8 @@ class HighClass {
           }
     }
 
-    setCursor (args, utils) {
+    customCursor (args, utils) {
+        console.log("Attempting")
         document.body.style.cursor=args.STRING;
     }
 
@@ -762,30 +758,6 @@ class HighClass {
         let x = y2 - y1;
         return Math.sqrt(x * x + y * y);
     }
-
-    parseJSON({
-		PATH,
-		JSON_STRING
-	}) {
-		try {
-			const path = PATH.toString().split('/').map(prop => decodeURIComponent(prop));
-			if (path[0] === '') path.splice(0, 1);
-			if (path[path.length - 1] === '') path.splice(-1, 1);
-			let json;
-			try {
-				json = JSON.parse(' ' + JSON_STRING);
-			} catch (e) {
-				return e.message;
-			}
-			path.forEach(prop => json = json[prop]);
-			if (json === null) return 'null';
-			else if (json === undefined) return '';
-			else if (typeof json === 'object') return JSON.stringify(json);
-			else return json.toString();
-		} catch (err) {
-			return '';
-		}
-	}
 
 }
 

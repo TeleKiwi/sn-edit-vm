@@ -559,21 +559,21 @@ class HighClass {
                       }
                     }
                 },
-                /* This broke something idk
+
                 {
                     opcode: 'Eval',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: BlockType.REPORTER,
                     text: formatMessage({
                         id: 'sn.blocks.json',
                         default: 'Eval [JS]'
                     }),
                     arguments: {
                         JS: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: ArgumentType.STRING,
                             defaultValue: '7 * 3',
                         },
                     },
-                }, */
+                },
                 
             ],
             menus: {
@@ -774,7 +774,6 @@ class HighClass {
         return Math.sqrt(x * x + y * y);
     }
 
-    /* This broke something idk
     Eval({JS}) {
         var evaluate=0
         try {
@@ -786,7 +785,7 @@ class HighClass {
         } catch(err) {
             return err
         }
-	} */
+	}
 
 }
 

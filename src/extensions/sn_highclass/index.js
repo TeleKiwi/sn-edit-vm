@@ -22,6 +22,10 @@ const icon = "data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2
 // --> i is variable commonly used for counters. In lua for example it is used in for loops `for i, v in pairs() do `
 var i = 1
 
+// --> console.log support for eval
+var output = undefined
+function eval_log(x){output=x}
+
 /**
  * @constructor
  */
@@ -775,9 +779,14 @@ class HighClass {
     }
 
     Eval({JS}) {
-        var evaluate=0
+        var evaluate = 0
+        var output = undefined
+        JS=JS.replace("console.log","eval_log")
         try {
             evaluate=eval(JS)
+            if (output != undefined) {
+                return output
+            }
             if (evaluate != undefined) {
                 return evaluate
             }

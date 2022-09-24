@@ -374,12 +374,18 @@ class HighClass {
                     blockType: BlockType.REPORTER
                 },
                 {
-                    opcode: 'resetuserinput',
+                    opcode: 'setuserinput',
                     text: formatMessage({
-                        id: 'sn.blocks.resetinput',
-                        default: 'Reset Input',
-                        description: 'Clears the users input'
+                        id: 'sn.blocks.setinput',
+                        default: 'Set Input to [set]',
+                        description: 'Sets the users input'
                     }),
+                    arguments: {
+                        set: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'Hello!',
+                        }
+                    },
                     blockType: BlockType.COMMAND
                 },
 //                 Temporarily Depricate the Mouseview item
@@ -753,8 +759,8 @@ class HighClass {
         return input;
     }
     
-    resetuserinput() {
-        input="";
+    setuserinput({set}) {
+        input=set;
     }
 
     clamp({input, min, max}) {

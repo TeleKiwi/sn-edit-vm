@@ -862,7 +862,7 @@ class HighClass {
             `
             const object = ${obj}
             object.${name} = '${value}'
-            function_log(object.toString())
+            function_log(object)
             `
         )
         return output

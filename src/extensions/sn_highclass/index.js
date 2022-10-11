@@ -27,9 +27,9 @@ const icon = "data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2
 // --> i is variable commonly used for counters. In lua for example it is used in for loops `for i, v in pairs() do `
 var i = 1
 
-// --> console.log support for eval
+// --> console.log support for eval blocks and eval in object blocks
 var output = undefined
-function eval_log(x){output=x}
+function function_log(x){output=x}
 
 /**
  * @constructor
@@ -600,7 +600,7 @@ class HighClass {
                 },
 
                 {
-                    opcode: 'EditObj',
+                    opcode: 'objsetvalue',
                     blockType: BlockType.REPORTER,
                     text: formatMessage({
                         id: 'sn.blocks.editobj',
@@ -623,7 +623,7 @@ class HighClass {
                 },
 
                 {
-                    opcode: 'GetObjValue',
+                    opcode: 'objgetvalue',
                     blockType: BlockType.REPORTER,
                     text: formatMessage({
                         id: 'sn.blocks.getobjvalue',
@@ -847,7 +847,7 @@ class HighClass {
     Eval({JS}) {
         var evaluate = 0
         var output = undefined
-        JS=JS.replace("console.log","eval_log")
+        JS=JS.replace("console.log","function_log")
         try {
             evaluate=eval(JS)
             if (output != undefined) {
@@ -862,16 +862,26 @@ class HighClass {
         }
 	}
 
-    EditObj({obj, name, value}) {
-        obj = JSON.parse(jsonStr);
-        obj[name]=value
-        return obj
-	}
+    objsetvalue({obj,name,value}) {
+        eval(
+            `
+            const object = ${obj}
+            object.${name} = '${value}'
+            function_log(object)
+            `
+        )
+        return output
+    }
 
-    GetObjValue({obj, name}) {
-        obj = JSON.parse(jsonStr);
-        return obj[name]
-	}
+    objgetvalue({obj,name}) {
+        eval(
+            `
+            const object = ${obj}
+            function_log(object.${name})
+            `
+        )
+        return output
+    }
 
 }
 

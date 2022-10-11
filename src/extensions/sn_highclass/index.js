@@ -861,7 +861,7 @@ class HighClass {
         eval(
             `
             const object = ${obj}
-            object.${name} = '${value}'
+            object.${name} = ${value.toString()}
             function_log(object)
             `
         )

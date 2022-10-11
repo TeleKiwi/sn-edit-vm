@@ -865,6 +865,7 @@ class HighClass {
             function_log(object)
             `
         )
+        console.log(output)
         return output
     }
 

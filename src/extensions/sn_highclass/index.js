@@ -373,15 +373,6 @@ class HighClass {
                     blockType: BlockType.REPORTER
                 },
                 {
-                    opcode: 'userinputindex',
-                    text: formatMessage({
-                        id: 'sn.blocks.inputindex',
-                        default: 'Input Index',
-                        description: 'Returns user input index'
-                    }),
-                    blockType: BlockType.REPORTER
-                },
-                {
                     opcode: 'setuserinput',
                     text: formatMessage({
                         id: 'sn.blocks.setinput',
@@ -811,10 +802,6 @@ class HighClass {
     
     setuserinput({set}) {
         input=set;
-    }
-
-    setuserinputindex({set}) {
-        inputindex=set;
     }
 
     clamp({input, min, max}) {

@@ -844,7 +844,6 @@ class HighClass {
 	}
 
     objsetvalue({obj,name,value}) {
-        console.log([obj,name,value])
         eval(
             `
             const object = ${obj}
@@ -852,7 +851,6 @@ class HighClass {
             function_log(object)
             `
         )
-        console.log(output)
         return JSON.stringify(output)
     }
 

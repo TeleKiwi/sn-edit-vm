@@ -853,7 +853,7 @@ class HighClass {
             `
         )
         console.log(output)
-        return output
+        return String(output)
     }
 
     objgetvalue({obj,name}) {

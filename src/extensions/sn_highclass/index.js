@@ -726,7 +726,7 @@ class HighClass {
     }
 
     containsExactly ({A, B}) {
-        return A.indexOf(B) !== 1
+        return A.contains(B)
     }
 
     replace (args,utils) {
